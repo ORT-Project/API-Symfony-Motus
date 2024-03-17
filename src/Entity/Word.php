@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\WordRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Attribute\Groups;
 
 #[ORM\Entity(repositoryClass: WordRepository::class)]
 class Word
@@ -14,9 +15,11 @@ class Word
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(["getWords"])]
     private ?string $word = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(["getWords"])]
     private ?string $definition = null;
 
     #[ORM\ManyToOne(inversedBy: 'words')]

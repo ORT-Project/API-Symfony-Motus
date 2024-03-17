@@ -21,6 +21,19 @@ class ThemeRepository extends ServiceEntityRepository
         parent::__construct($registry, Theme::class);
     }
 
+    public function findByAlias(String $alias): array
+    {
+        return $this->createQueryBuilder('t')
+            ->where($this->createQueryBuilder('t')->expr()->like('t.alias', ':searchTerm'))
+            ->setParameter('searchTerm', '%' . json_encode($alias) . '%')
+//            ->where('t.alias LIKE :alias')
+//            ->setParameter('alias', '%'.$alias.'%')
+//            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
 //    /**
 //     * @return Theme[] Returns an array of Theme objects
 //     */

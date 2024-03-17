@@ -6,6 +6,7 @@ use App\Repository\ThemeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Attribute\Groups;
 
 #[ORM\Entity(repositoryClass: ThemeRepository::class)]
 class Theme
@@ -13,15 +14,19 @@ class Theme
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(["getWords"])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(["getWords"])]
     private ?string $name = null;
 
     #[ORM\Column]
+    #[Groups(["getWords"])]
     private array $alias = [];
 
     #[ORM\OneToMany(targetEntity: Word::class, mappedBy: 'theme')]
+    #[Groups(["getWords"])]
     private Collection $words;
 
     public function __construct()

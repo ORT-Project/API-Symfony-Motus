@@ -29,6 +29,9 @@ class Theme
     #[Groups(["getWords"])]
     private Collection $words;
 
+    #[ORM\Column(length: 255)]
+    private ?string $image = null;
+
     public function __construct()
     {
         $this->words = new ArrayCollection();
@@ -89,6 +92,18 @@ class Theme
                 $word->setTheme(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): static
+    {
+        $this->image = $image;
 
         return $this;
     }

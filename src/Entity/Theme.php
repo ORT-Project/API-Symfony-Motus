@@ -30,6 +30,7 @@ class Theme
     private Collection $words;
 
     #[ORM\Column(length: 255)]
+    #[Groups(["getWords"])]
     private ?string $image = null;
 
     public function __construct()

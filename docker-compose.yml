@@ -11,7 +11,7 @@ services:
       MYSQL_DATABASE: API_Symfony
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     volumes:
-      - ./var/dbdata:/var/lib/mysql
+      - ./var/dbdata:/var/dbdata/mysql
 
   phpmyadmin:
     container_name: API_REST

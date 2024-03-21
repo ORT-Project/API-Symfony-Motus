@@ -1,9 +1,8 @@
-version: "3"
+version: "4"
 services:
   db:  # Mettez 'db' au lieu de 'database'
     container_name: API_Symfony
     image: mysql:8.0
-    platform: ubuntu/amd64
     ports:
       - "3306:3306"
     restart: always

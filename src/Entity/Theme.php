@@ -21,10 +21,6 @@ class Theme
     #[Groups(["getWords"])]
     private ?string $name = null;
 
-    #[ORM\Column]
-    #[Groups(["getWords"])]
-    private array $alias = [];
-
     #[ORM\OneToMany(targetEntity: Word::class, mappedBy: 'theme')]
     #[Groups(["getWords"])]
     private Collection $words;
@@ -32,6 +28,9 @@ class Theme
     #[ORM\Column(length: 255)]
     #[Groups(["getWords"])]
     private ?string $image = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $style = null;
 
     public function __construct()
     {
@@ -51,18 +50,6 @@ class Theme
     public function setName(string $name): static
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getAlias(): array
-    {
-        return $this->alias;
-    }
-
-    public function setAlias(array $alias): static
-    {
-        $this->alias = $alias;
 
         return $this;
     }
@@ -105,6 +92,18 @@ class Theme
     public function setImage(string $image): static
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getStyle(): ?string
+    {
+        return $this->style;
+    }
+
+    public function setStyle(string $style): static
+    {
+        $this->style = $style;
 
         return $this;
     }

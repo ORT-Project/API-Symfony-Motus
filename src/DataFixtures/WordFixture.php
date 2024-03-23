@@ -17,7 +17,7 @@ class WordFixture extends Fixture
 
     public function loadMinecraft(ObjectManager $manager)
     {
-        $theme = $this->getReference('theme-mc');
+        $theme = $this->getReference('theme-minecraft');
         $this->loadWord($manager, 'arrow', 'Se tire avec un arc', $theme);
     }
 

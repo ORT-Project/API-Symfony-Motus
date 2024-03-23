@@ -8,7 +8,7 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: API_Symfony
-      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_ROOT_PASSWORD: cestmoilechef
     volumes:
       - dbdata:/var/lib/mysql
 

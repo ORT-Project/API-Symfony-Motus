@@ -8,15 +8,16 @@ use Doctrine\Persistence\ObjectManager;
 
 class DifficultyFixture extends Fixture
 {
-    public function load(ObjectManager $manager)
+    public function load(ObjectManager $manager): void
     {
-        $this->loadDifficulty($manager, 'Facile', 1, 10, true);
-        $this->loadDifficulty($manager, 'Moyen', 1, 7, true);
-        $this->loadDifficulty($manager, 'Difficile', 1, 5, true);
-        $this->loadDifficulty($manager, 'Impossible', 1, 3, false);
+        $this->loadDifficulty($manager, 'Facile', 1, 10, true, 'easy');
+        $this->loadDifficulty($manager, 'Moyen', 1, 7, true, 'medium');
+        $this->loadDifficulty($manager, 'Difficile', 1, 5, true, 'hard');
+        $this->loadDifficulty($manager, 'Impossible', 1, 3, false, 'impossible');
     }
 
-    public function loadDifficulty(ObjectManager $manager, String $name, int $tips, int $attempts, bool $color)
+    public function loadDifficulty(ObjectManager $manager, String $name, int $tips, int $attempts, bool $color
+        , String $alias): void
     {
         $difficulty = new Difficulty();
 
@@ -24,6 +25,7 @@ class DifficultyFixture extends Fixture
         $difficulty->setTips($tips);
         $difficulty->setAttempts($attempts);
         $difficulty->setColor($color);
+        $difficulty->setAlias($alias);
 
         $manager->persist($difficulty);
         $manager->flush();

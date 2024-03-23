@@ -25,6 +25,9 @@ class Difficulty
     #[ORM\Column]
     private ?bool $color = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $alias = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -74,6 +77,18 @@ class Difficulty
     public function setColor(bool $color): static
     {
         $this->color = $color;
+
+        return $this;
+    }
+
+    public function getAlias(): ?string
+    {
+        return $this->alias;
+    }
+
+    public function setAlias(string $alias): static
+    {
+        $this->alias = $alias;
 
         return $this;
     }

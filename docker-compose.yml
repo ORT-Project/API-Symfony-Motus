@@ -13,6 +13,7 @@ services:
       - dbdata:/var/lib/mysql
 
   phpmyadmin:
+    container_name: PhpMyAdmin
     image: phpmyadmin/phpmyadmin
     restart: always
     environment:

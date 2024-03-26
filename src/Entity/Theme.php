@@ -14,11 +14,11 @@ class Theme
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(["getWords"])]
+    #[Groups(["getTheme", "getWords"])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(["getWords"])]
+    #[Groups(["getTheme", "getWords"])]
     private ?string $name = null;
 
     #[ORM\OneToMany(targetEntity: Word::class, mappedBy: 'theme')]
@@ -26,11 +26,11 @@ class Theme
     private Collection $words;
 
     #[ORM\Column(length: 255)]
-    #[Groups(["getWords"])]
+    #[Groups(["getTheme"])]
     private ?string $image = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(["getWords"])]
+    #[Groups(["getTheme"])]
     private ?string $style = null;
 
     public function __construct()

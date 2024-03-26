@@ -25,10 +25,8 @@ class ThemeRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('t')
             ->where($this->createQueryBuilder('t')->expr()->like('t.style', ':searchTerm'))
-            ->setParameter('searchTerm', '%' . json_encode($alias) . '%')
-//            ->where('t.alias LIKE :alias')
-//            ->setParameter('alias', '%'.$alias.'%')
-//            ->setMaxResults(1)
+            ->where('t.style LIKE :alias')
+            ->setParameter('alias', '%'.$alias.'%')
             ->getQuery()
             ->getResult()
         ;

@@ -12,6 +12,7 @@ class Word
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(["getWords"])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]

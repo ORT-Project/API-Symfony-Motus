@@ -16,7 +16,7 @@ class ThemeController extends AbstractController
     public function index(ThemeRepository $themeRepository, SerializerInterface $serializer): JsonResponse
     {
         $themes = $themeRepository->findAll();
-        $jsonThemeList = $serializer->serialize($themes, 'json', ['groups' => 'getWords']);
+        $jsonThemeList = $serializer->serialize($themes, 'json', ['groups' => 'getTheme']);
 
         return new JsonResponse($jsonThemeList, Response::HTTP_OK, [], true);
     }

@@ -30,6 +30,4 @@ class ThemeController extends AbstractController
 
         return new JsonResponse($jsonThemeList, Response::HTTP_OK, [], true);
     }
-
-
 }

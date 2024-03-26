@@ -24,7 +24,7 @@ class ThemeRepository extends ServiceEntityRepository
     public function findByAlias(String $alias): array
     {
         return $this->createQueryBuilder('t')
-            ->where($this->createQueryBuilder('t')->expr()->like('t.alias', ':searchTerm'))
+            ->where($this->createQueryBuilder('t')->expr()->like('t.style', ':searchTerm'))
             ->setParameter('searchTerm', '%' . json_encode($alias) . '%')
 //            ->where('t.alias LIKE :alias')
 //            ->setParameter('alias', '%'.$alias.'%')

@@ -274,7 +274,7 @@ class WordFixture extends Fixture
             'galilei' => 'Personnage principal',
             'coulomb' => 'Personnage principal'
         ];
-        $theme = $this->getReference('theme-honkaistarrail');
+        $theme = $this->getReference('theme-hsr');
 
         foreach ($words as $name => $description) {
             $this->loadWord($manager, $name, $description, $theme);
